@@ -28,8 +28,8 @@ jobs:
 
       # build image
       - name: Build Docker image
-        run: docker build -t $IMAGE_NAME .
+        run: docker build -t Frontend:latest /app.
 
       # push image to registry
       - name: Push Docker image
-        run: docker push $IMAGE_NAME
+        run: docker push us.gcr.io/bootcamp-363315/Frontend
