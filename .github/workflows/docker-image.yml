@@ -36,4 +36,4 @@ jobs:
       
       # push image to registry
       - name: Push Docker image
-        run: docker push us.gcr.io/bootcamp-363315
+        run: docker push us.gcr.io/bootcamp-363315/frontend
