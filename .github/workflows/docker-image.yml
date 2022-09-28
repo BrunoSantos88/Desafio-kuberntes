@@ -32,7 +32,7 @@ jobs:
 
       # tag image to registry
       - name: Tag Docker image
-        run: docker tag forntend us.gcr.io/bootcamp-363315
+        run: docker tag frontend us.gcr.io/bootcamp-363315
       
       # push image to registry
       - name: Push Docker image
