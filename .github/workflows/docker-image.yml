@@ -28,8 +28,13 @@ jobs:
 
       # build image
       - name: Build Docker image
-        run: docker build -t Frontend:latest /app.
+        run: docker build -t Frontend:latest app/.
+      - name: Build Docker image
+        run: docker build -t database:latest mysql/.
+        
 
       # push image to registry
       - name: Push Docker image
         run: docker push us.gcr.io/bootcamp-363315/Frontend
+      - name: Push Docker image
+        run: docker push us.gcr.io/bootcamp-363315/database
