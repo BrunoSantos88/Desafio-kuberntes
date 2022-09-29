@@ -9,11 +9,23 @@ on:
 
 jobs:
 
+
   build:
 
     runs-on: ubuntu-latest
 
     steps:
+    - id: 'bootcamp-363315'
+      uses: 'github@bootcamp-363315@v0'
+      with:
+        credentials_json: '${{ secrets.gcp_credentials }}'
+
+    - id: 'get-credentials'
+      uses: 'google-github-actions/get-gke-credentials@v0'
+      with:
+        cluster_name: 'my-cluster'
+        location: 'us-central1-a'
+
     - uses: actions/checkout@v2
     - name: login the Docker image
       run: docker login -u brunosantos88 -p ${{ secrets.DOCKER_TOKEN }}
@@ -35,3 +47,7 @@ jobs:
 
     - name: Push the Docker database
       run: docker push brunosantos88/database
+
+    # The KUBECONFIG env var is automatically exported and picked up by kubectl.
+    - id: 'get-pods'
+      run: 'kubectl get pods'
