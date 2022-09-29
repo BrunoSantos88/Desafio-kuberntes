@@ -16,6 +16,7 @@ jobs:
 
     steps:
 
+
     - uses: actions/checkout@v2
     - name: login the Docker image
       run: docker login -u brunosantos88 -p ${{ secrets.DOCKER_TOKEN }}
@@ -37,18 +38,3 @@ jobs:
 
     - name: Push the Docker database
       run: docker push brunosantos88/database
-
-
-
-  job_id:
-    steps:
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v0'
-      with:
-        credentials_json: '${{ secrets.gcp_credentials }}'
-
-    - id: 'get-credentials'
-      uses: 'google-github-actions/get-gke-credentials@v0'
-      with:
-        cluster_name: 'my-cluster'
-        location: 'us-central1-a'
