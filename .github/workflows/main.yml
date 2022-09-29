@@ -17,7 +17,7 @@ jobs:
       - name: Script
         run: |
            docker build -t frontend app/.
-           docker login -u ${{ secrets.DOCKER_USER }} -p {{ secrets.DOCKER_SECRETS }}
+           echo login -u ${{ secrets.DOCKER_USER }} -p {{ secrets.DOCKER_SECRETS }} --stdin-password
            docker tag frontend brunosantos88/frontend
            docker push brunosantos88/frontend
           
