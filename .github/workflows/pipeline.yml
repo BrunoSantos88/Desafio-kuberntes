@@ -1,10 +1,4 @@
-name: Pipeline docker build,deploy no docker hub e deploy cluster GCP
-
-env:
-  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GAR_LOCATION: us-central1  # TODO: update region of the Artifact Registry
-  GKE_CLUSTER: #######   # TODO: update to cluster name
-  GKE_ZONE: us-central1-c	   # TODO: update to cluster zone
+name: Pipeline docker build,deploy no docker hub 
 
 on:
   push:
@@ -25,16 +19,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Git checkout
-    - name: Checkout
-      uses: actions/checkout@v2
-
-  # Login to GCP
-    - uses: google-github-actions/setup-gcloud@v0.2.0
-      with:
-       service_account_key: ${{ secrets.GCP_CREDENTIALS }}
-       project_id: ${{ secrets.GCP_PROJECT_ID }}
-
 
     - uses: actions/checkout@v2
     - name: login the Docker image
@@ -58,26 +42,7 @@ jobs:
     - name: Push the Docker database
       run: docker push brunosantos88/database
 
-# Get the GKE credentials so we can deploy to the cluster
-    - name: Set up GKE credentials
-      run: ###########################################
-      
-# Deploy GKE deploy frontend cluster
-    - name: Deploy frontend
-      run: kubectl delete -f app-deployment.yml
 
-# Deploy GKE deploy bancodados cluster
-    - name: Deploy banco-dados
-      run: kubectl delete -f mysql-deployment.yml
-
-# Deploy GKE deploy bancodados cluster
-    - name: Deploy secret banco-dados
-      run: kubectl delete -f secret.yml
-
-# Deploy GKE deploy servicço Loadbalacer cluster
-    - name: Deploy Loadbalancer 
-      run: kubectl delete -f load-balancer.yml
-               
 
 
     
