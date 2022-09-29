@@ -1,0 +1,28 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [main ]
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: login the Docker image
+      run: docker login -u brunosantos88 -p ${{ secrets.DOCKER_TOKEN }}
+
+    - name: Build the Docker image
+      run: docker build -t frontend app/.
+   
+    - name: Tag Docker image
+      run: docker tag frontend brunosantos88/frontend
+      
+    - name: Push the Docker image
+      run: docker push brunosantos88/frontend
