@@ -13,11 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      
+  #Deploy
       - name: Script
         run: |
            docker build -t frontend app/.
-           docker login -u brunosantos88 -p dckr_pat_bE5J0A3eTzPN5yQJnhfE4TAmsjU
+           docker login -u ${{ secrets.DOCKER_USER }} -p {{ secrets.DOCKER_SECRETS }}
            docker tag frontend brunosantos88/frontend
            docker push brunosantos88/frontend
           
