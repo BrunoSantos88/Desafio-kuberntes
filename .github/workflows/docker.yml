@@ -18,11 +18,21 @@ jobs:
     - name: login the Docker image
       run: docker login -u brunosantos88 -p ${{ secrets.DOCKER_TOKEN }}
 
-    - name: Build the Docker image
+    - name: Build the Docker App image
       run: docker build -t frontend app/.
-   
+    
+
+    - name: Build the Docker mysql image
+      run: docker build -t frontend mysql/.
+      
     - name: Tag Docker image
       run: docker tag frontend brunosantos88/frontend
+
+    - name: Tag Docker image
+      run: docker tag database brunosantos88/database
       
     - name: Push the Docker image
       run: docker push brunosantos88/frontend
+
+    - name: Push the Docker image
+      run: docker push brunosantos88/database
