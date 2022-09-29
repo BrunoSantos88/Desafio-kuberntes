@@ -22,7 +22,7 @@ jobs:
       run: docker build -t frontend app/.
     
     - name: Build the Docker mysql image
-      run: docker build -t frontend mysql/.
+      run: docker build -t database mysql/.
       
     - name: Tag Docker frontend
       run: docker tag frontend brunosantos88/frontend
