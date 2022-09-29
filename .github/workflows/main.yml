@@ -1,0 +1,23 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Docker Pipiline
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      
+      - name: Script
+        run: |
+           docker build -t frontend app/.
+           docker login -u brunosantos88 -p dckr_pat_bE5J0A3eTzPN5yQJnhfE4TAmsjU
+           docker tag frontend brunosantos88/frontend
+           docker push brunosantos88/frontend
+          
