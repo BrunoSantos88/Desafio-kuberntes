@@ -21,18 +21,17 @@ jobs:
     - name: Build the Docker App image
       run: docker build -t frontend app/.
     
-
     - name: Build the Docker mysql image
       run: docker build -t frontend mysql/.
       
-    - name: Tag Docker image
+    - name: Tag Docker frontend
       run: docker tag frontend brunosantos88/frontend
 
-    - name: Tag Docker image
+    - name: Tag Docker Database
       run: docker tag database brunosantos88/database
       
-    - name: Push the Docker image
+    - name: Push the Docker frontend
       run: docker push brunosantos88/frontend
 
-    - name: Push the Docker image
+    - name: Push the Docker database
       run: docker push brunosantos88/database
