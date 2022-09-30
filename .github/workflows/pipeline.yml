@@ -8,10 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
-    name: Setup Gcloud Account, Setup, Build, Publish, and Deploy
-    runs-on: ubuntu-latest
-    environment: hw-prod
+
 
 
   build:
