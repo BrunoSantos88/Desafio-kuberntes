@@ -7,7 +7,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 10Gi
   storageClassName: standard-rwo
 
 ---
@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: brunosantos88/database
+        image: brunosantos88/database:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3306

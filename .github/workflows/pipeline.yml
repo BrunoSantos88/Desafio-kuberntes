@@ -58,6 +58,10 @@ jobs:
         with:
          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+   # Get the GKE credentials so we can deploy to the cluster
+      - name: Set up GKE credentials
+        run: ${{ secrets.GKE_TOKEN }}
  
       - name: Deploy frontend
         run: kubectl apply -f app-deployment.yml
