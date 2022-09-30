@@ -44,7 +44,7 @@ jobs:
       run: docker push brunosantos88/database
  
  deploy:
-  name: Setup Gcloud Account, Setup, Build, Publish, and Deploy
+  name: Deploy kubernetes GKE 
   runs-on: ubuntu-latest
   environment: hw-prod
 
@@ -60,7 +60,7 @@ jobs:
          project_id: ${{ secrets.GCP_PROJECT_ID }}
  
       - name: Deploy frontend
-        run: kubectl aplly -f app-deployment.yml
+        run: kubectl apply -f app-deployment.yml
 
   # Deploy GKE deploy bancodados cluster
       - name: Deploy banco-dados
