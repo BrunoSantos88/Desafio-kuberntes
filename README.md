@@ -9,6 +9,7 @@ CLUSTER GKE
 PRINT acesso http
 <img align="center" alt="Rafa-Js" height="800" width="1200" src="https://user-images.githubusercontent.com/91704169/193293384-a8a1eb29-d475-456d-ba89-322ba0213005.png"/>       
   
+Secrets Git e tokem Gitaction criadas
  <img align="center" alt="Rafa-Js" height="800" width="1200" src="https://user-images.githubusercontent.com/91704169/193298340-3f667fa3-4df7-4fe2-a4b8-ff6b88724a67.png"/> 
  
 
