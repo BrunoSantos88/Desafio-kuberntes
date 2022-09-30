@@ -6,11 +6,7 @@ CLUSTER GKE
 
 PRINT conexao com Banco
 <img align="center" alt="Rafa-Js" height="800" width="1200" src="https://user-images.githubusercontent.com/91704169/192374145-363d9ffc-ebbb-497d-ab45-6c1b71932977.png"/>       
-
-Acesso ao banco MYSQL
-<img align="center" alt="tela" height="800" width="1200" src="https://user-images.githubusercontent.com/91704169/192374100-2f8a5eae-4a11-4704-b5fa-b69678eb03f1.png"/>       
-REPOSITORIO DOCKER HUB
-<img align="center" alt="docker hub" height="800" width="1200" src="https://user-images.githubusercontent.com/91704169/192373851-f691130c-81b6-4a8f-81ae-f3241652320e.png"/>       
+  
 
 <p align="left">
        
