@@ -1,6 +1,6 @@
 # Cloud-DevOps-Experience-DIO
 
-Modulo 3 concluido, efetuei CI/CD pelo Git action , efetuei deploy dde container no docker hub e cluster GKE, usando token de chaves de minhas contas docker Hub e Google clooud.
+Modulo 3 concluido, criei uma esteira de Pipeline (CI/CD) pelo Git Action , efetuei deploy de container no docker hub e deploy de novos kubernetes no cluster GKE, usando imagens do docker hub , atualizadas , acesso do git action foi, usando token e chaves  de minhas contas docker Hub e Google clooud.
 
 CLUSTER GKE 
 <img align="center" alt="kubectl" height="800" width="1200" src= "https://user-images.githubusercontent.com/91704169/193296314-6d6f758d-25a6-4d39-8fe6-278304f9fd53.png"/> 
