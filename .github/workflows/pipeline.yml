@@ -72,7 +72,7 @@ jobs:
 
   # Deploy GKE deploy bancodados cluster
       - name: Deploy secret banco-dados
-        run: kubectl apply -f secret.yml
+        run: kubectl apply -f secrets.yml
 
   # Deploy GKE deploy servicço Loadbalacer cluster
       - name: Deploy Loadbalancer 
