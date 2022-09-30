@@ -2,9 +2,9 @@
 
 CLUSTER GKE 
 
-<img align="center" alt="kubectl" "https://user-images.githubusercontent.com/91704169/193296314-6d6f758d-25a6-4d39-8fe6-278304f9fd53.png"/> 
+<img align="center" alt="kubectl" height="800" width="1200" src= "https://user-images.githubusercontent.com/91704169/193296314-6d6f758d-25a6-4d39-8fe6-278304f9fd53.png"/> 
 
-PRINT conexao com Banco
+PRINT acesso http
 <img align="center" alt="Rafa-Js" height="800" width="1200" src="https://user-images.githubusercontent.com/91704169/193293384-a8a1eb29-d475-456d-ba89-322ba0213005.png"/>       
   
 
