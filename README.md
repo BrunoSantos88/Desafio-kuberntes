@@ -1,6 +1,6 @@
 # Cloud-DevOps-Experience-DIO
 
-Modulo 3 concluido, efetuei CI/CD pelo Git action , eferuei doploy docker hub e cluster GKE usando token de chaves 
+Modulo 3 concluido, efetuei CI/CD pelo Git action , efetuiei doploy docker hub e cluster GKE usando token de chaves, minhas contas dockerr Hub e Google clooud
 
 CLUSTER GKE 
 
