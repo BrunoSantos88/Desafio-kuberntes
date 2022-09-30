@@ -59,24 +59,25 @@ jobs:
          service_account_key: ${{ secrets.GCP_CREDENTIALS }}
          project_id: ${{ secrets.GCP_PROJECT_ID }}
 
-   # Get the GKE credentials so we can deploy to the cluster
-      - name: Set up GKE credentials
+  # Get the GKE token acesso ao cluster
+      - name: Token acesso ao cluster
         run: ${{ secrets.GKE_TOKEN }}
  
       - name: Deploy frontend
         run: kubectl apply -f app-deployment.yml
 
+  # Deploy GKE deploy chave banco cluster
+      - name: Deploy Secret banco
+        run: kubectl apply -f secret.yml
+
   # Deploy GKE deploy bancodados cluster
       - name: Deploy banco-dados
         run: kubectl apply -f mysql-deployment.yml
 
-  # Deploy GKE deploy bancodados cluster
-      - name: Deploy secret banco-dados
-        run: kubectl apply -f secret.yml
-
-  # Deploy GKE deploy servicço Loadbalacer cluster
-      - name: Deploy Loadbalancer 
+  # Deploy GKE deploy LoadBalancer FrontEnd
+      - name: Deploy Secret banco
         run: kubectl apply -f load-balancer.yml
+
 
 
 
