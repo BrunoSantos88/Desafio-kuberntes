@@ -1,4 +1,4 @@
-name: Pipeline docker build,deploy no docker hub 
+name: PIPELINE DEPLOY DOCKER E CLUSTER GKE
 
 on:
   push:
@@ -7,40 +7,74 @@ on:
     branches: [main ]
   workflow_dispatch:
 
+env:
+  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
+  GAR_LOCATION: us-central1  
+  GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}   # TODO: update to cluster name
+  GKE_ZONE: us-central1-c	   # TODO: update to cluster zone
+  
 jobs:
   deploy:
-    name: Setup Gcloud Account, Setup, Build, Publish, and Deploy
-    runs-on: ubuntu-latest
-    environment: hw-prod
-
-
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-
-    - uses: actions/checkout@v2
-    - name: login the Docker image
-      run: docker login -u brunosantos88 -p ${{ secrets.DOCKER_TOKEN }}
-
-    - name: Build the Docker App image
-      run: docker build -t frontend app/.
+   name: Setup Gcloud Account, Setup, Build, Publish, and Deploy
+   runs-on: ubuntu-latest
+   environment: hw-prod
     
-    - name: Build the Docker mysql image
-      run: docker build -t database mysql/.
-      
-    - name: Tag Docker frontend
-      run: docker tag frontend brunosantos88/frontend
+   steps:
+  # Git checkout
+     - name: Checkout
+       uses: actions/checkout@v2
 
-    - name: Tag Docker Database
-      run: docker tag database brunosantos88/database
-      
-    - name: Push the Docker frontend
-      run: docker push brunosantos88/frontend
+  # Login docker HUb
+     - name: login the Docker image
+       run: docker login -u brunosantos88 -p ${{ secrets.DOCKER_TOKEN }}
 
-    - name: Push the Docker database
-      run: docker push brunosantos88/database
+  # Build imagens docker 
+     - name: Build the Docker App image
+       run: docker build -t frontend app/.
+    
+     - name: Build the Docker mysql image
+       run: docker build -t database mysql/.
+
+  # Tag images docker frontend  
+     - name: Tag Docker frontend
+       run: docker tag frontend brunosantos88/frontend
+ 
+  # Tag Imagem docker banco de dados
+     - name: Tag Docker Database
+       run: docker tag database brunosantos88/database
+
+  # Push imagem docker para o docker HUb    
+     - name: Push the Docker frontend
+       run: docker push brunosantos88/frontend
+ 
+  # Push imagem docker para o docker HUb  
+     - name: Push the Docker database
+       run: docker push brunosantos88/database
+
+  # Login to GCP
+     - uses: google-github-actions/setup-gcloud@v0.2.0
+       with:
+        service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+  # Get the GKE credentials so we can deploy to the cluster
+     - name: Set up GKE credentials
+       run: ${{ secrets.GKE_TOKEN }}
+  # Deploy GKE deploy frontend cluster
+     - name: Deploy frontend
+       run: kubectl aplly -f app-deployment.yml
+
+  # Deploy GKE deploy bancodados cluster
+     - name: Deploy banco-dados
+       run: kubectl apply -f mysql-deployment.yml
+
+  # Deploy GKE deploy bancodados cluster
+     - name: Deploy secret banco-dados
+       run: kubectl apply -f secret.yml
+
+  # Deploy GKE deploy servicço Loadbalacer cluster
+     - name: Deploy Loadbalancer 
+       run: kubectl apply -f load-balancer.yml
 
 
 
