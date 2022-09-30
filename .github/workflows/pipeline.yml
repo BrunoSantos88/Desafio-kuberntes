@@ -55,15 +55,15 @@ jobs:
         run: ${{ secrets.GKE_TOKEN }}
  
       - name: Deploy frontend
-        run: kubectl delete -f app-deployment.yml
+        run: kubectl apply -f app-deployment.yml
 
   # Deploy GKE deploy bancodados cluster
       - name: Deploy banco-dados
-        run: kubectl delete -f mysql-deployment.yml
+        run: kubectl apply -f mysql-deployment.yml
 
   # Deploy GKE deploy LoadBalancer FrontEnd
       - name: Deploy Loadbalncer FrontEnd
-        run: kubectl delete -f load-balancer.yml
+        run: kubectl apply -f load-balancer.yml
 
 
 
