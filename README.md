@@ -1,5 +1,7 @@
 # Cloud-DevOps-Experience-DIO
 
+Modulo 3 concluido, efetuei CI/CD pelo Git action , eferuei doploy docker hub e cluster GKE usando token de chaves 
+
 CLUSTER GKE 
 
 <img align="center" alt="kubectl" height="800" width="1200" src= "https://user-images.githubusercontent.com/91704169/193296314-6d6f758d-25a6-4d39-8fe6-278304f9fd53.png"/> 
